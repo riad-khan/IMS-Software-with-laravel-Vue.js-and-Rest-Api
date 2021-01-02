@@ -42,6 +42,11 @@ import {routes} from './routes'
 import User from './Helpers/User'
 window.User = User
 
+//notification Helper Import//
+
+import Notification from './Helpers/Notification'
+window.Notification = Notification
+
 const router = new VueRouter({
     routes, // short for `routes: routes`
     mode: 'history'

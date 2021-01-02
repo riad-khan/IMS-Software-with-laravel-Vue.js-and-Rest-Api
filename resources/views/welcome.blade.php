@@ -23,17 +23,17 @@
     <!-- Sidebar -->
     <nav id="sidebar" v-show="$route.path === '/' || $route.path ==='/register' || $route.path === '/forgotPassword' ? false : true" style="display: none;">
     <ul class="navbar-nav sidebar sidebar-light accordion" id="accordionSidebar">
-        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+        <router-link to="/home" class="sidebar-brand d-flex align-items-center justify-content-center" >
             <div class="sidebar-brand-icon">
                 <img src="{{asset("ims/img/logo/logo2.png")}}">
             </div>
             <div class="sidebar-brand-text mx-3"> IMS Software</div>
-        </a>
+        </router-link>
         <hr class="sidebar-divider my-0">
         <li class="nav-item active">
-            <a class="nav-link" href="index.html">
+            <router-link class="nav-link" to="/home">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
-                <span>Dashboard</span></a>
+                <span>Dashboard</span></router-link>
         </li>
         <hr class="sidebar-divider">
         <div class="sidebar-heading">
@@ -43,17 +43,14 @@
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap"
                aria-expanded="true" aria-controls="collapseBootstrap">
                 <i class="far fa-fw fa-window-maximize"></i>
-                <span>Bootstrap UI</span>
+                <span>Employee</span>
             </a>
             <div id="collapseBootstrap" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Bootstrap UI</h6>
-                    <a class="collapse-item" href="alerts.html">Alerts</a>
-                    <a class="collapse-item" href="buttons.html">Buttons</a>
-                    <a class="collapse-item" href="dropdowns.html">Dropdowns</a>
-                    <a class="collapse-item" href="modals.html">Modals</a>
-                    <a class="collapse-item" href="popovers.html">Popovers</a>
-                    <a class="collapse-item" href="progress-bar.html">Progress Bars</a>
+                    <h6 class="collapse-header">Employee</h6>
+                    <router-link class="collapse-item" to="/new-employee">Add New Employee</router-link>
+                   <router-link class="collapse-item" to="/all-employee">All Employee</router-link>
+
                 </div>
             </div>
         </li>
@@ -277,7 +274,7 @@
                         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
                            aria-haspopup="true" aria-expanded="false">
                             <img class="img-profile rounded-circle" src="{{asset('ims/img/boy.png')}}" style="max-width: 60px">
-                            <router-link to="/logout" class="ml-2 d-none d-lg-inline text-white small">Logout</router-link>
+                            <span class="ml-2 d-none d-lg-inline text-white small">Riad Khan</span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                             <a class="dropdown-item" href="#">
@@ -293,10 +290,10 @@
                                 Activity Log
                             </a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="login.html">
+                            <router-link class="dropdown-item" to="/logout">
                                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                                 Logout
-                            </a>
+                            </router-link>
                         </div>
                     </li>
                 </ul>
@@ -322,7 +319,7 @@
 
 <script src="{{asset('js/app.js')}}"></script>
 <script src="{{asset('ims/vendor/jquery/jquery.min.js')}}"></script>
-<script src="{{asset("ims/vendor/bootstrap/js/bootstrap.bundle.min.js")}}"></script>
+
 
 <script>
     let token = localStorage.getItem('token');
