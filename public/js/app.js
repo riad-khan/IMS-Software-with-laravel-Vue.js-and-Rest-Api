@@ -2587,6 +2587,15 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = (_defineProperty({
   created: function created() {
     if (!User.loggedIn()) {
@@ -2595,16 +2604,26 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   },
   data: function data() {
     return {
-      employees: []
+      employees: [],
+      searchTerm: ''
     };
+  },
+  computed: {
+    filterSearch: function filterSearch() {
+      var _this = this;
+
+      return this.employees.filter(function (employee) {
+        return employee.name.match(_this.searchTerm);
+      });
+    }
   },
   methods: {
     allEmployees: function allEmployees() {
-      var _this = this;
+      var _this2 = this;
 
       axios.get('/api/employee/').then(function (_ref) {
         var data = _ref.data;
-        return _this.employees = data;
+        return _this2.employees = data;
       })["catch"]();
     }
   }
@@ -2623,6 +2642,12 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -42924,9 +42949,11 @@ var render = function() {
         staticClass: "d-sm-flex align-items-center justify-content-between mb-4"
       },
       [
-        _c("h1", { staticClass: "h3 mb-0 text-gray-800" }, [
-          _vm._v("Employees List")
-        ]),
+        _c(
+          "h1",
+          { staticClass: "h3 mb-0", staticStyle: { color: "#6777ef" } },
+          [_vm._v("Employees List")]
+        ),
         _vm._v(" "),
         _c("ol", { staticClass: "breadcrumb" }, [
           _c(
@@ -42953,18 +42980,48 @@ var render = function() {
     _c("div", { staticClass: "row" }, [
       _c("div", { staticClass: "col-lg-12 mb-4" }, [
         _c("div", { staticClass: "card" }, [
-          _vm._m(0),
+          _c(
+            "div",
+            {
+              staticClass: "card-header py-3 flex-row justify-content-between"
+            },
+            [
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.searchTerm,
+                    expression: "searchTerm"
+                  }
+                ],
+                staticClass: "form-control float-right ",
+                staticStyle: { width: "350px" },
+                attrs: { type: "text", placeholder: "Search Employee Here" },
+                domProps: { value: _vm.searchTerm },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.searchTerm = $event.target.value
+                  }
+                }
+              }),
+              _c("br")
+            ]
+          ),
           _vm._v(" "),
           _c("div", { staticClass: "table-responsive" }, [
             _c(
               "table",
               { staticClass: "table align-items-center table-flush" },
               [
-                _vm._m(1),
+                _vm._m(0),
                 _vm._v(" "),
                 _c(
                   "tbody",
-                  _vm._l(_vm.employees, function(employee) {
+                  _vm._l(_vm.filterSearch, function(employee) {
                     return _c("tr", { key: employee.id }, [
                       _c("td", [_vm._v(_vm._s(employee.name))]),
                       _vm._v(" "),
@@ -42985,7 +43042,7 @@ var render = function() {
                       _vm._v(" "),
                       _c("td", [_vm._v(_vm._s(employee.date))]),
                       _vm._v(" "),
-                      _vm._m(2, true)
+                      _vm._m(1, true)
                     ])
                   }),
                   0
@@ -42994,30 +43051,29 @@ var render = function() {
             )
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "card-footer" })
+          _c("div", { staticClass: "card-footer" }, [
+            _c(
+              "div",
+              { staticClass: "row justify-content-center" },
+              [
+                _c(
+                  "router-link",
+                  {
+                    staticClass: "btn btn-primary text-center",
+                    attrs: { to: "/new-employee" }
+                  },
+                  [_vm._v("Add New Employee")]
+                )
+              ],
+              1
+            )
+          ])
         ])
       ])
     ])
   ])
 }
 var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      {
-        staticClass:
-          "card-header py-3 d-flex flex-row align-items-center justify-content-between"
-      },
-      [
-        _c("h6", { staticClass: "m-0 font-weight-bold text-primary" }, [
-          _vm._v("Employees List")
-        ])
-      ]
-    )
-  },
   function() {
     var _vm = this
     var _h = _vm.$createElement
@@ -43325,7 +43381,34 @@ var render = function() {
                       ])
                     ]),
                     _vm._v(" "),
-                    _vm._m(1),
+                    _c("div", { staticClass: "form-group" }, [
+                      _c(
+                        "div",
+                        { staticClass: "row justify-content-center" },
+                        [
+                          _c(
+                            "button",
+                            {
+                              staticClass: "btn btn-primary",
+                              staticStyle: { width: "100px" },
+                              attrs: { type: "submit" }
+                            },
+                            [_vm._v("Submit")]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "router-link",
+                            {
+                              staticClass:
+                                "btn btn-info text-center float-right ml-2",
+                              attrs: { to: "/all-employee" }
+                            },
+                            [_vm._v("Employees List")]
+                          )
+                        ],
+                        1
+                      )
+                    ]),
                     _vm._v(" "),
                     _c("hr")
                   ]
@@ -43347,18 +43430,6 @@ var staticRenderFns = [
       _c("h1", { staticClass: "h4 text-gray-900 mb-4" }, [
         _vm._v("Add New Employee")
       ])
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "form-group" }, [
-      _c(
-        "button",
-        { staticClass: "btn btn-primary btn-block", attrs: { type: "submit" } },
-        [_vm._v("Submit")]
-      )
     ])
   }
 ]

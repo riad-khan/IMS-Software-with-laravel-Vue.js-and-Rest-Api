@@ -2,7 +2,7 @@
    <div>
 
        <div class="d-sm-flex align-items-center justify-content-between mb-4">
-           <h1 class="h3 mb-0 text-gray-800">Employees List</h1>
+           <h1 class="h3 mb-0" style="color: #6777ef;">Employees List</h1>
            <ol class="breadcrumb">
                <li class="breadcrumb-item"><router-link to="/">Home</router-link></li>
                <li class="breadcrumb-item">Employees</li>
@@ -13,9 +13,12 @@
            <div class="col-lg-12 mb-4">
                <!-- Simple Tables -->
                <div class="card">
-                   <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                       <h6 class="m-0 font-weight-bold text-primary">Employees List</h6>
+                   <div class="card-header py-3 flex-row justify-content-between">
+
+                       <input type="text" class="form-control float-right " v-model="searchTerm" style="width: 350px" placeholder="Search Employee Here"><br>
                    </div>
+
+
                    <div class="table-responsive">
                        <table class="table align-items-center table-flush">
                            <thead class="thead-light">
@@ -32,7 +35,7 @@
                            </tr>
                            </thead>
                            <tbody>
-                           <tr v-for="employee in employees" :key="employee.id">
+                           <tr v-for="employee in filterSearch" :key="employee.id">
                                <td>{{ employee.name }}</td>
                                <td>{{ employee.email }}</td>
                                <td><img :src="employee.photo" style="width: 40px;height: 40px;"></td>
@@ -46,7 +49,13 @@
                            </tbody>
                        </table>
                    </div>
-                   <div class="card-footer"></div>
+                   <div class="card-footer">
+
+                          <div class="row justify-content-center">
+                              <router-link to="/new-employee" class="btn btn-primary text-center">Add New Employee</router-link>
+                          </div>
+
+                   </div>
                </div>
            </div>
        </div>
@@ -63,6 +72,14 @@
         data(){
             return{
                 employees:[],
+                searchTerm:'',
+            }
+        },
+        computed:{
+            filterSearch(){
+                return this.employees.filter(employee => {
+                    return employee.name.match(this.searchTerm)
+                })
             }
         },
         methods:{

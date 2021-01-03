@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link href="img/logo/logo.png" rel="icon">
-    <title>RuangAdmin - Dashboard</title>
+    <title>IMS-Software</title>
     <link href="{{asset('css/app.css')}}" rel="stylesheet" type="text/css">
     <link href="{{asset("ims/vendor/fontawesome-free/css/all.min.css")}}" rel="stylesheet" type="text/css">
     <link href="{{asset("ims/vendor/bootstrap/css/bootstrap.min.css")}}" rel="stylesheet" type="text/css">

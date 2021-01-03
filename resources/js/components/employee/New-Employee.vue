@@ -79,8 +79,14 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                                    <div class="row justify-content-center">
+                                        <button style="width:100px;" type="submit" class="btn btn-primary">Submit</button>
+
+                                        <router-link to="/all-employee" class="btn btn-info text-center float-right ml-2">Employees List</router-link>
                                     </div>
+
+                                    </div>
+
                                     <hr>
 
                                 </form>
