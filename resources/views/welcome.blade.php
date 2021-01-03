@@ -15,6 +15,12 @@
     <link href="{{asset("ims/css/ruang-admin.min.css")}}" rel="stylesheet">
     <link href=”lib/noty.css” rel=”stylesheet”>
     <script src="lib/noty.js" type="text/javascript"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script src="sweetalert2.all.min.js"></script>
+    <!-- Optional: include a polyfill for ES6 Promises for IE11 -->
+    <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+    <script src="sweetalert2.min.js"></script>
+    <link rel="stylesheet" href="sweetalert2.min.css">
 </head>
 
 <body id="page-top">

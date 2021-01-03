@@ -43,7 +43,10 @@
                                <td>{{ employee.nid }}</td>
                                <td>{{ employee.salary }}</td>
                                <td>{{ employee.date }}</td>
-                               <td><a href="#" class="btn btn-sm btn-primary">Detail</a></td>
+                               <td>
+                                   <a href="#" class="btn btn-sm btn-primary">Edit</a>
+                                   <a @click="deleteEmployee(employee.id)" style="color: white" class="btn btn-sm btn-danger">Delete</a>
+                               </td>
                            </tr>
 
                            </tbody>
@@ -88,6 +91,34 @@
                 .then(({data}) =>(this.employees = data))
                 .catch()
             },
+            deleteEmployee(id){
+                Swal.fire({
+                    title: 'Are you sure?',
+                    text: "You won't be able to revert this!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, delete it!'
+                }).then((result) => {
+                    if (result.value) {
+                        axios.delete('/api/employee/'+id)
+                            .then(() => {
+                                this.employees = this.employees.filter(employee => {
+                                    return employee.id != id
+                                    this.$router.push({name: '/all-employee'})
+                                })
+                            })
+                            .catch()
+                        Swal.fire(
+                            'Deleted!',
+                            'Your file has been deleted.',
+                            'success'
+                        )
+                    }
+                })
+
+            }
 
         },
         created(){

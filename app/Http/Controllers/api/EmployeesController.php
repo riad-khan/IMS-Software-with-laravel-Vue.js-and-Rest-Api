@@ -134,6 +134,14 @@ class EmployeesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $find = DB::table('employees')->where('id',$id)->first();
+        $photo = $find->photo;
+
+        if($photo){
+            unlink($photo);
+             DB::table('employees')->where('id',$id)->delete();
+        }else{
+             DB::table('employees')->where('id',$id)->delete();
+        }
     }
 }

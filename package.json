@@ -25,6 +25,7 @@
     },
     "dependencies": {
         "noty": "^3.2.0-beta",
+        "sweetalert2": "^10.12.7",
         "vue-router": "^3.4.9"
     }
 }
