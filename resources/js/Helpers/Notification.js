@@ -8,6 +8,15 @@ class Notification{
         }).show();
     }
 
+    update(){
+        new Noty({
+            type:'success',
+            layout:'topRight',
+            text:'Successfully Updated',
+            timeout:3600,
+        }).show();
+    }
+
     alert(){
         new Noty({
             type:'alert',

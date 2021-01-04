@@ -6,6 +6,7 @@ const  Home = require('./components/Home').default;
 const logout = require('./components/auth/logout').default;
 const NewEmployee = require('./components/employee/New-Employee').default;
 const AllEmployee = require('./components/employee/All-employee').default;
+const EditEmployee = require('./components/employee/edit-employee').default;
 
 
 export const routes = [
@@ -16,6 +17,8 @@ export const routes = [
     { path: '/logout', component: logout, name: 'logout'  },
     { path: '/new-employee', component: NewEmployee, name: 'NewEmployee'  },
     { path: '/all-employee', component: AllEmployee, name: 'AllEmployee'  },
+    { path: '/edit-employee/:id', component: EditEmployee, name: 'EditEmployee'},
+
 
 
 

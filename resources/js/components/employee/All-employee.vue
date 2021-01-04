@@ -44,7 +44,7 @@
                                <td>{{ employee.salary }}</td>
                                <td>{{ employee.date }}</td>
                                <td>
-                                   <a href="#" class="btn btn-sm btn-primary">Edit</a>
+                                   <router-link :to="{name:'EditEmployee',params:{id:employee.id}}" class="btn btn-sm btn-primary">Edit</router-link>
                                    <a @click="deleteEmployee(employee.id)" style="color: white" class="btn btn-sm btn-danger">Delete</a>
                                </td>
                            </tr>
