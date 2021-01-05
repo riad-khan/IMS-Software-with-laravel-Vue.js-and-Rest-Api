@@ -21,12 +21,11 @@
   <component name="ChangeListManager">
     <list default="true" id="0a17f681-8bde-4001-9bd5-ccbda1f6800e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/api/EmployeesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/api/EmployeesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/ims/employee/1609680654.jpeg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/Helpers/Notification.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/Helpers/Notification.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/employee/All-employee.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/employee/All-employee.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/employee/New-Employee.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/employee/New-Employee.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/routes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -201,6 +200,8 @@
       <workItem from="1609664106361" duration="12534000" />
       <workItem from="1609686105714" duration="10000" />
       <workItem from="1609755692328" duration="10152000" />
+      <workItem from="1609777945790" duration="377000" />
+      <workItem from="1609839146270" duration="10799000" />
     </task>
     <servers />
   </component>
@@ -220,6 +221,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="690" y="280" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1609852459390">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="690" y="280" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/-1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1609852459390" />
     <state x="740" y="280" key="FileChooserDialogImpl" timestamp="1609423028378">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
