@@ -9,6 +9,7 @@ const AllEmployee = require('./components/employee/All-employee').default;
 const EditEmployee = require('./components/employee/edit-employee').default;
 const AddSuppliers = require('./components/suppliers/add-suppliers').default;
 const AllSuppliers = require('./components/suppliers/all-suppliers').default;
+const EditSuppliers = require('./components/suppliers/edit-supplier').default;
 
 export const routes = [
     { path: '/', component:login, name: '/' },
@@ -21,6 +22,7 @@ export const routes = [
     { path: '/edit-employee/:id', component: EditEmployee, name: 'EditEmployee'},
     { path: '/add-supplier', component: AddSuppliers, name: 'AddSuppliers'},
     { path: '/all-supplier', component: AllSuppliers, name: 'AllSuppliers'},
+    { path: '/edit-supplier/:id', component: EditSuppliers, name: 'EditSuppliers'},
 
 
 

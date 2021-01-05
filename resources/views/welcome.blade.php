@@ -71,7 +71,7 @@
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Suppliers</h6>
                     <router-link class="collapse-item" to="/add-supplier">Add New Supplier</router-link>
-                    <router-link class="collapse-item" to="/all-employee">All Suppliers</router-link>
+                    <router-link class="collapse-item" to="/all-supplier">All Suppliers</router-link>
 
                 </div>
             </div>

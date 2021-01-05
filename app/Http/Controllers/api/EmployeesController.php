@@ -157,7 +157,7 @@ class EmployeesController extends Controller
 
            if($img){
                $data['photo'] = $image_url;
-               $oldImage = DB::table('employees')->where('id',$id)->first();
+               $oldImage= DB::table('employees')->where('id',$id)->first();
                $oldImagePath = $oldImage->photo;
                $unbind = unlink($oldImagePath);
 

@@ -35,7 +35,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr v-for="supplier in suppliers" :key="supplier.id">
+                            <tr v-for="supplier in filterSuppliers" :key="supplier.id">
                                 <td>{{ supplier.name }}</td>
                                 <td>{{ supplier.email }}</td>
                                 <td><img :src="supplier.photo" style="width: 40px;height: 40px;"></td>
@@ -44,8 +44,8 @@
                                 <td>{{ supplier.address }}</td>
                                 <td>{{ supplier.shop }}</td>
                                 <td>
-                                   <!-- <router-link :to="{name:'EditEmployee',params:{id:employee.id}}" class="btn btn-sm btn-primary">Edit</router-link>
-                                    <a @click="deleteEmployee(employee.id)" style="color: white" class="btn btn-sm btn-danger">Delete</a> -->
+                                    <router-link :to="{name:'EditSuppliers',params:{id:supplier.id}}" class="btn btn-sm btn-primary">Edit</router-link>
+                                    <a @click="deleteSuppliers(supplier.id)" style="color: white" class="btn btn-sm btn-danger">Delete</a>
                                 </td>
                             </tr>
 
@@ -79,11 +79,47 @@
             }
         },
 
+        computed:{
+         filterSuppliers(){
+             return this.suppliers.filter(suplier =>{
+                 return suplier.name.match(this.searchTerm)
+             })
+         }
+        },
+
         methods:{
             Allsuppliers(){
                 axios.get('/api/suppliers')
                 .then(({data})=>(this.suppliers = data))
                 .catch(error)
+            },
+            deleteSuppliers(id){
+                Swal.fire({
+                    title: 'Are you sure?',
+                    text: "You won't be able to revert this!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, delete it!'
+                }).then((result) => {
+                    if (result.value) {
+
+                        axios.delete('/api/suppliers/'+id)
+                        .then(()=>{
+                            this.suppliers = this.suppliers.filter(supplier =>{
+                                return supplier.id != id
+                                this.$router.push('/all-supplier')
+                            })
+                        })
+                        .catch()
+                        Swal.fire(
+                            'Deleted!',
+                            'Your file has been deleted.',
+                            'success'
+                        )
+                    }
+                })
             }
         },
         created(){
