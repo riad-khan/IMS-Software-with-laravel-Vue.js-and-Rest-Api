@@ -21,7 +21,14 @@
   <component name="ChangeListManager">
     <list default="true" id="0a17f681-8bde-4001-9bd5-ccbda1f6800e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/api/SupplierController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/api/SupplierController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Model/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Model/Category.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Model/Supplier.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Model/Supplier.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_01_05_094204_create_suppliers_table.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/suppliers/add-suppliers.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/suppliers/add-suppliers.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/suppliers/all-suppliers.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/suppliers/all-suppliers.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/suppliers/edit-supplier.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/suppliers/edit-supplier.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/routes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
@@ -172,6 +179,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RunManager">
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -201,7 +209,14 @@
       <workItem from="1609755692328" duration="10152000" />
       <workItem from="1609777945790" duration="377000" />
       <workItem from="1609839146270" duration="17649000" />
-      <workItem from="1609935772820" duration="11573000" />
+      <workItem from="1609935772820" duration="11666000" />
+      <workItem from="1609956428242" duration="367000" />
+      <workItem from="1609963640869" duration="1249000" />
+      <workItem from="1610000916198" duration="3350000" />
+      <workItem from="1610023547821" duration="3393000" />
+      <workItem from="1610097768324" duration="3664000" />
+      <workItem from="1610103121752" duration="115000" />
+      <workItem from="1610103253168" duration="14740000" />
     </task>
     <servers />
   </component>
@@ -221,18 +236,22 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="690" y="280" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1609852459390">
+    <state x="690" y="280" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1610104090206">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="690" y="280" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/-1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1609852459390" />
+    <state x="690" y="280" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/-1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1610104090206" />
     <state x="740" y="280" key="FileChooserDialogImpl" timestamp="1609423028378">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="740" y="280" key="FileChooserDialogImpl/-1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1609423028378" />
-    <state x="-1842" y="-10" width="1636" height="1037" maximized="true" key="dock-window-1" timestamp="1609859028845">
+    <state x="802" y="187" key="SettingsEditor" timestamp="1610103731428">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="802" y="187" key="SettingsEditor/-1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1610103731428" />
+    <state x="-1775" y="0" width="1594" height="1037" maximized="true" key="dock-window-1" timestamp="1610120120309">
       <screen x="-1920" y="0" width="1920" height="1050" />
     </state>
-    <state x="-1842" y="-10" width="1636" height="1037" maximized="true" key="dock-window-1/-1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1609859028845" />
+    <state x="-1775" y="0" width="1594" height="1037" maximized="true" key="dock-window-1/-1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1610120120309" />
     <state x="-1697" y="-8" width="1636" height="1037" maximized="true" key="dock-window-2" timestamp="1609936071536">
       <screen x="-1920" y="0" width="1920" height="1050" />
     </state>

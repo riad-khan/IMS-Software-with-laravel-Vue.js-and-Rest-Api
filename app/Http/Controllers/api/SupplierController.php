@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
+use App\Model\Product;
 use Illuminate\Http\Request;
 use App\Model\Supplier;
 use DB;
@@ -41,7 +42,7 @@ class SupplierController extends Controller
     public function store(Request $request)
     {
        $validate = $request->validate([
-          'name' => 'required|unique:suppliers|max:255',
+          'sname' => 'required|unique:suppliers|max:255',
           'email' =>'required',
           'phone' => 'required',
            'nid' => 'required',
@@ -72,7 +73,7 @@ class SupplierController extends Controller
 
            $suppliers = new Supplier;
 
-           $suppliers->name = $request->name;
+           $suppliers->sname = $request->sname;
            $suppliers->email = $request->email;
            $suppliers->phone = $request->phone;
            $suppliers->nid = $request->nid;
@@ -85,7 +86,7 @@ class SupplierController extends Controller
        }else{
            $suppliers = new Supplier;
 
-           $suppliers->name = $request->name;
+           $suppliers->sname = $request->sname;
            $suppliers->email = $request->email;
            $suppliers->phone = $request->phone;
            $suppliers->nid = $request->nid;
@@ -131,7 +132,7 @@ class SupplierController extends Controller
     {
         $data = array();
 
-        $data['name'] = $request->name;
+        $data['sname'] = $request->sname;
         $data['email'] = $request->email;
         $data['phone'] = $request->phone;
         $data['nid'] = $request->nid;

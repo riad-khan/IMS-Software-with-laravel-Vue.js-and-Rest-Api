@@ -36,7 +36,7 @@
                             </thead>
                             <tbody>
                             <tr v-for="supplier in filterSuppliers" :key="supplier.id">
-                                <td>{{ supplier.name }}</td>
+                                <td>{{ supplier.sname }}</td>
                                 <td>{{ supplier.email }}</td>
                                 <td><img :src="supplier.photo" style="width: 40px;height: 40px;"></td>
                                 <td>{{ supplier.phone }}</td>
@@ -81,17 +81,17 @@
 
         computed:{
          filterSuppliers(){
-             return this.suppliers.filter(suplier =>{
-                 return suplier.name.match(this.searchTerm)
+             return this.suppliers.filter(supplier =>{
+                 return supplier.sname.match(this.searchTerm)
              })
          }
         },
 
         methods:{
             Allsuppliers(){
-                axios.get('/api/suppliers')
+                axios.get('/api/suppliers/')
                 .then(({data})=>(this.suppliers = data))
-                .catch(error)
+                .catch()
             },
             deleteSuppliers(id){
                 Swal.fire({
@@ -112,7 +112,7 @@
                                 this.$router.push('/all-supplier')
                             })
                         })
-                        .catch()
+                        .catch(error)
                         Swal.fire(
                             'Deleted!',
                             'Your file has been deleted.',

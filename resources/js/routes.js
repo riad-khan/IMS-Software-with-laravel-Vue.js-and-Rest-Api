@@ -13,6 +13,10 @@ const EditSuppliers = require('./components/suppliers/edit-supplier').default;
 const createCategory = require('./components/categories/create-categories').default;
 const AllCategories = require('./components/categories/all-categories').default;
 const EditCategory = require('./components/categories/edit-category').default;
+const AddProduct = require('./components/products/add-products').default;
+const AllProduct = require('./components/products/all-products').default;
+const EditProduct = require('./components/products/edit-products').default;
+
 export const routes = [
     { path: '/', component:login, name: '/' },
     { path: '/register', component: register, name: 'register'  },
@@ -28,6 +32,11 @@ export const routes = [
     { path: '/create-category', component: createCategory, name: 'createCategory'},
     { path: '/all-categories', component: AllCategories, name: 'AllCategories'},
     { path: '/edit-category/:id', component: EditCategory, name: 'EditCategory'},
+    { path: '/add-product', component: AddProduct, name: 'AddProduct'},
+    { path: '/all-product', component: AllProduct, name: 'AllProduct'},
+    { path: '/edit-product/:id', component: EditProduct, name: 'EditProduct'},
+
+
 
 
 

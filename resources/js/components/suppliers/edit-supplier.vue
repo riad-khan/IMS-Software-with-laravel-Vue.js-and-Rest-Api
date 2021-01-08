@@ -14,8 +14,8 @@
                                         <div class="form-row">
                                             <div class="col-md-6">
                                                 <label> Name</label>
-                                                <input type="text" v-model="form.name" class="form-control" id="exampleInputFirstName"  required>
-                                                <small class="text-danger" v-if="errors.name"> {{ errors.name[0] }} </small>
+                                                <input type="text" v-model="form.sname" class="form-control" id="exampleInputFirstName"  required>
+                                                <small class="text-danger" v-if="errors.sname"> {{ errors.name[0] }} </small>
                                             </div>
 
                                             <div class="col-md-6">
@@ -114,7 +114,7 @@
         data(){
             return{
                 form:{
-                    name: '',
+                    sname: '',
                     email:'',
                     phone:'',
                     nid:'',
