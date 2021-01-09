@@ -16,6 +16,11 @@ const EditCategory = require('./components/categories/edit-category').default;
 const AddProduct = require('./components/products/add-products').default;
 const AllProduct = require('./components/products/all-products').default;
 const EditProduct = require('./components/products/edit-products').default;
+const AllExpense = require('./components/expense/all-expense').default;
+const CreateExpense = require('./components/expense/create-expense').default;
+const EditExpense = require('./components/expense/edit-expense').default;
+const Salary_list = require('./components/salary/all-emploies').default;
+const pay_salary = require('./components/salary/pay-salary').default;
 
 export const routes = [
     { path: '/', component:login, name: '/' },
@@ -35,6 +40,13 @@ export const routes = [
     { path: '/add-product', component: AddProduct, name: 'AddProduct'},
     { path: '/all-product', component: AllProduct, name: 'AllProduct'},
     { path: '/edit-product/:id', component: EditProduct, name: 'EditProduct'},
+    { path: '/all-expense', component: AllExpense, name: 'AllExpense'},
+    { path: '/create-expense', component: CreateExpense, name: 'CreateExpense'},
+    { path: '/edit-expense/:id', component: EditExpense, name: 'EditExpense'},
+    { path: '/given-salary', component: Salary_list, name: 'Salary_list'},
+    { path: '/pay-salary', component: pay_salary, name: 'pay_salary'},
+
+
 
 
 

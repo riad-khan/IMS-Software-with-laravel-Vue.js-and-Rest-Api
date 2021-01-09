@@ -85,7 +85,7 @@
             </a>
             <div id="collapseBootstrap2" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Suppliers</h6>
+                    <h6 class="collapse-header">Categories</h6>
                     <router-link class="collapse-item" to="/create-category">Add New Category</router-link>
                     <router-link class="collapse-item" to="/all-categories">All Categories</router-link>
 
@@ -101,14 +101,44 @@
             </a>
             <div id="collapseBootstrap3" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Suppliers</h6>
+                    <h6 class="collapse-header">Products</h6>
                     <router-link class="collapse-item" to="/add-product">Add Product</router-link>
                     <router-link class="collapse-item" to="/all-product">All Products</router-link>
 
                 </div>
             </div>
         </li>
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap4"
+               aria-expanded="true" aria-controls="collapseBootstrap4">
+                <i class="far fa-fw fa-window-maximize"></i>
+                <span>Expense</span>
+            </a>
+            <div id="collapseBootstrap4" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Expense</h6>
+                    <router-link class="collapse-item" to="/create-expense">Add Expense</router-link>
+                    <router-link class="collapse-item" to="/all-expense">Expense List</router-link>
 
+                </div>
+            </div>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap5"
+               aria-expanded="true" aria-controls="collapseBootstrap5">
+                <i class="far fa-fw fa-window-maximize"></i>
+                <span>Salary</span>
+            </a>
+            <div id="collapseBootstrap5" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Expense</h6>
+                    <router-link class="collapse-item" to="/given-salary">Pay Salary</router-link>
+                    <router-link class="collapse-item" to="/all-expense">Salary List</router-link>
+
+                </div>
+            </div>
+        </li>
 
 
         <hr class="sidebar-divider">
