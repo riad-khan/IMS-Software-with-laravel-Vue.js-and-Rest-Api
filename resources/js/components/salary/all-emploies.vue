@@ -55,7 +55,7 @@
                     <div class="card-footer">
 
                         <div class="row justify-content-center">
-                            <router-link to="/new-employee" class="btn btn-primary text-center">Add New Employee</router-link>
+                            <router-link to="/view-salary" class="btn btn-primary text-center">Salary List</router-link>
                         </div>
 
                     </div>

@@ -33,4 +33,48 @@ class SalaryController extends Controller
 
         }
 
+        public function list_year(){
+            $year = DB::table('salaries')
+                ->select('year',DB::raw('count(*) as total'))
+                ->groupBy('year')
+                ->orderBy('year','DESC')
+                ->get();
+
+            return response()->json($year);
+
+        }
+
+        public function month_list($id){
+            $month_name = $id;
+            $month = DB::table('salaries')
+                ->select('month')
+                ->where('year',$month_name)
+                ->groupBy('month')
+                ->orderBy('month','DESC')
+                ->get();
+            return response()->json($month);
+        }
+
+        public function salary_list($id){
+            $month_name = $id;
+            $list = DB::table('salaries')
+                ->select('*')
+                ->where('month',$id)
+                ->get();
+
+            return response()->json($list);
+        }
+        public  function total_paid($id){
+            $month_name = $id;
+
+            $total = DB::table('salaries')
+                ->select('amount')
+                ->where('month',$month_name)
+                ->sum('amount');
+            return response()->json($total);
+        }
+
+
+
+
 }

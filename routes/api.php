@@ -36,4 +36,8 @@ Route::apiResource('/category','api\CategoryController');
 Route::apiResource('/products','api\ProductsController');
 Route::apiResource('/expense','api\ExpenseController');
 Route::post('/salary/paid/{id}','api\SalaryController@paid');
+Route::get('/salary/year','api\SalaryController@list_year');
+Route::get('/salary/month/{id}','api\SalaryController@month_list');
+Route::get('/salary/list/{id}','api\SalaryController@salary_list');
+Route::get('/salary/total/{id}','api\SalaryController@total_paid');
 

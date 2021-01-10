@@ -21,6 +21,9 @@ const CreateExpense = require('./components/expense/create-expense').default;
 const EditExpense = require('./components/expense/edit-expense').default;
 const Salary_list = require('./components/salary/all-emploies').default;
 const pay_salary = require('./components/salary/pay-salary').default;
+const Viewsalary = require('./components/salary/view-sallery').default;
+const Month_list = require('./components/salary/month-list').default;
+const Details = require('./components/salary/salary-list').default;
 
 export const routes = [
     { path: '/', component:login, name: '/' },
@@ -44,7 +47,12 @@ export const routes = [
     { path: '/create-expense', component: CreateExpense, name: 'CreateExpense'},
     { path: '/edit-expense/:id', component: EditExpense, name: 'EditExpense'},
     { path: '/given-salary', component: Salary_list, name: 'Salary_list'},
-    { path: '/pay-salary', component: pay_salary, name: 'pay_salary'},
+    { path: '/pay-salary/:id', component: pay_salary, name: 'pay_salary'},
+    { path: '/view-salary', component: Viewsalary, name: 'Viewsalary'},
+    { path: '/month-list/:id', component: Month_list, name: 'Month_list'},
+    { path: '/salary-details/:id', component: Details, name: 'Details'},
+
+
 
 
 

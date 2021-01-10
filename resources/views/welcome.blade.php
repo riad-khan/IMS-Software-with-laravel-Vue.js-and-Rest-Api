@@ -134,7 +134,7 @@
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Expense</h6>
                     <router-link class="collapse-item" to="/given-salary">Pay Salary</router-link>
-                    <router-link class="collapse-item" to="/all-expense">Salary List</router-link>
+                    <router-link class="collapse-item" to="/view-salary">Salary List</router-link>
 
                 </div>
             </div>
