@@ -71,6 +71,7 @@
             if(!User.loggedIn()){
                 this.$router.push('/')
             }
+            this.allEmployees();
         },
         data(){
             return{
@@ -87,6 +88,7 @@
         },
         methods:{
             allEmployees(){
+                console.log("token", localStorage.getItem('token'));
                 axios.get('/api/employee/')
                 .then(({data}) =>(this.employees = data))
                 .catch()
@@ -121,9 +123,7 @@
             }
 
         },
-        created(){
-            this.allEmployees();
-        }
+
     }
 </script>
 

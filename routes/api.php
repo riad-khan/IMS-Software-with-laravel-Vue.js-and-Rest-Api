@@ -21,23 +21,24 @@ Route::group([
     'prefix' => 'auth'
 
 ], function ($router) {
-
     Route::post('login', 'AuthController@login');
     Route::post('logout', 'AuthController@logout');
     Route::post('refresh', 'AuthController@refresh');
     Route::post('register', 'AuthController@register');
-    Route::post('me', 'AuthController@me');
-
+});
+Route::middleware('JWT')->group(function(){
+    Route::post('/auth/me', 'AuthController@me');
+    Route::apiResource('/employee','api\EmployeesController');
+    Route::apiResource('/suppliers','api\SupplierController');
+    Route::apiResource('/category','api\CategoryController');
+    Route::apiResource('/products','api\ProductsController');
+    Route::apiResource('/expense','api\ExpenseController');
+    Route::post('/salary/paid/{id}','api\SalaryController@paid');
+    Route::get('/salary/year','api\SalaryController@list_year');
+    Route::get('/salary/month/{id}','api\SalaryController@month_list');
+    Route::get('/salary/list/{id}','api\SalaryController@salary_list');
+    Route::get('/salary/total/{id}','api\SalaryController@total_paid');
 });
 
-Route::apiResource('/employee','api\EmployeesController');
-Route::apiResource('/suppliers','api\SupplierController');
-Route::apiResource('/category','api\CategoryController');
-Route::apiResource('/products','api\ProductsController');
-Route::apiResource('/expense','api\ExpenseController');
-Route::post('/salary/paid/{id}','api\SalaryController@paid');
-Route::get('/salary/year','api\SalaryController@list_year');
-Route::get('/salary/month/{id}','api\SalaryController@month_list');
-Route::get('/salary/list/{id}','api\SalaryController@salary_list');
-Route::get('/salary/total/{id}','api\SalaryController@total_paid');
+
 
