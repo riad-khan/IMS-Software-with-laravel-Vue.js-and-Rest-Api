@@ -21,11 +21,10 @@
   <component name="ChangeListManager">
     <list default="true" id="0a17f681-8bde-4001-9bd5-ccbda1f6800e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/api/SalaryController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/api/SalaryController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/api/ProductsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/api/ProductsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/ims/products/1610123373.jpeg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/employee/All-employee.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/employee/All-employee.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/products/all-products.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/products/all-products.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/salary/salary-list.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/salary/salary-list.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/routes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
@@ -219,7 +218,8 @@
       <workItem from="1610278100656" duration="14420000" />
       <workItem from="1610509326609" duration="1005000" />
       <workItem from="1610529791597" duration="919000" />
-      <workItem from="1610544665528" duration="8807000" />
+      <workItem from="1610544665528" duration="8932000" />
+      <workItem from="1610568364886" duration="5381000" />
     </task>
     <servers />
   </component>
@@ -243,10 +243,10 @@
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
     <state x="414" y="180" key="#com.intellij.execution.impl.EditConfigurationsDialog/-1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1610545035205" />
-    <state x="690" y="280" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1610104090206">
+    <state x="690" y="280" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1610572929319">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>
-    <state x="690" y="280" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/-1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1610104090206" />
+    <state x="690" y="280" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/-1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1610572929319" />
     <state x="622" y="155" key="#phpunit.xml" timestamp="1610545055131">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>

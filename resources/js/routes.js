@@ -27,6 +27,8 @@ const Details = require('./components/salary/salary-list').default;
 const edit_salary = require('./components/salary/edit-salary').default;
 const product_stock = require('./components/stock/product-list').default;
 const update_stock = require('./components/stock/update-stock').default;
+const allCustomer = require('./components/customer/all-customer').default;
+const createCustomer = require('./components/customer/create-customer').default;
 
 export const routes = [
     { path: '/', component:login, name: '/' },
@@ -57,6 +59,9 @@ export const routes = [
     { path: '/edit-salary/:id', component: edit_salary, name: 'edit_salary'},
     { path: '/product-stock', component: product_stock, name: 'product_stock'},
     { path: '/update-stock/:id', component: update_stock, name: 'update_stock'},
+    { path: '/create-customer', component: createCustomer, name: 'createCustomer'},
+    { path: '/all-customer', component: allCustomer, name: 'allCustomer'},
+
 
 
 

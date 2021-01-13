@@ -42,6 +42,7 @@ Route::middleware('JWT')->group(function(){
     Route::get('/salary/edit/{id}','api\SalaryController@edit');
     Route::patch('/salary/update/{id}','api\SalaryController@update');
     Route::apiResource('/stock','api\StockController');
+    Route::apiResource('/customer','api\CustomerController');
 
 });
 

@@ -132,7 +132,7 @@
             </a>
             <div id="collapseBootstrap5" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Expense</h6>
+                    <h6 class="collapse-header">Salary</h6>
                     <router-link class="collapse-item" to="/given-salary">Pay Salary</router-link>
                     <router-link class="collapse-item" to="/view-salary">Salary List</router-link>
 
@@ -148,8 +148,25 @@
             </a>
             <div id="collapseBootstrap6" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Expense</h6>
+                    <h6 class="collapse-header">Product Stock</h6>
                     <router-link class="collapse-item" to="/product-stock">Stock List</router-link>
+
+
+                </div>
+            </div>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap7"
+               aria-expanded="true" aria-controls="collapseBootstrap7">
+                <i class="far fa-fw fa-window-maximize"></i>
+                <span>Customer</span>
+            </a>
+            <div id="collapseBootstrap7" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Customer</h6>
+                    <router-link class="collapse-item" to="/create-customer">Create Customer</router-link>
+                    <router-link class="collapse-item" to="/all-customer">Customer List</router-link>
 
 
                 </div>
