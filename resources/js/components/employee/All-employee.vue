@@ -82,7 +82,7 @@
         computed:{
             filterSearch(){
                 return this.employees.filter(employee => {
-                    return employee.name.match(this.searchTerm)
+                    return employee.name.toUpperCase().match(this.searchTerm.toUpperCase())
                 })
             }
         },

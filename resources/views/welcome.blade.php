@@ -140,6 +140,22 @@
             </div>
         </li>
 
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap6"
+               aria-expanded="true" aria-controls="collapseBootstrap6">
+                <i class="far fa-fw fa-window-maximize"></i>
+                <span>Product Stock</span>
+            </a>
+            <div id="collapseBootstrap6" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Expense</h6>
+                    <router-link class="collapse-item" to="/product-stock">Stock List</router-link>
+
+
+                </div>
+            </div>
+        </li>
+
 
         <hr class="sidebar-divider">
         <div class="sidebar-heading">
@@ -348,6 +364,19 @@
             </div>
             <!---Container Fluid-->
         </div>
+
+        <!-- Footer -->
+        <footer class="sticky-footer bg-white">
+            <div class="container my-auto">
+                <div class="copyright text-center my-auto">
+            <span>copyright &copy; <script> document.write(new Date().getFullYear()); </script> - developed by
+              <b><a href="https://www.easylearningbd.com/" target="_blank">Riad Khan</a></b>
+            </span>
+                </div>
+            </div>
+        </footer>
+        <!-- Footer -->
+
 
     </div>
 </div>

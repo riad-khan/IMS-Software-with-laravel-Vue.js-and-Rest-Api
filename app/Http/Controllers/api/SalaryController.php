@@ -74,6 +74,29 @@ class SalaryController extends Controller
             return response()->json($total);
         }
 
+        public function edit($id){
+
+           // $find = DB::table('salaries')->where('id',$id)->first();
+
+            $find = Salary::find($id);
+
+            return response()->json($find);
+
+        }
+
+        public function update( Request $request,$id){
+            $data =array();
+
+            $data['month'] = $request->month;
+
+            $update = new Salary();
+
+            $update_salary = Salary::where('id',$id)->update($data);
+
+
+
+        }
+
 
 
 

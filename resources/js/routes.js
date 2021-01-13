@@ -24,6 +24,9 @@ const pay_salary = require('./components/salary/pay-salary').default;
 const Viewsalary = require('./components/salary/view-sallery').default;
 const Month_list = require('./components/salary/month-list').default;
 const Details = require('./components/salary/salary-list').default;
+const edit_salary = require('./components/salary/edit-salary').default;
+const product_stock = require('./components/stock/product-list').default;
+const update_stock = require('./components/stock/update-stock').default;
 
 export const routes = [
     { path: '/', component:login, name: '/' },
@@ -51,6 +54,9 @@ export const routes = [
     { path: '/view-salary', component: Viewsalary, name: 'Viewsalary'},
     { path: '/month-list/:id', component: Month_list, name: 'Month_list'},
     { path: '/salary-details/:id', component: Details, name: 'Details'},
+    { path: '/edit-salary/:id', component: edit_salary, name: 'edit_salary'},
+    { path: '/product-stock', component: product_stock, name: 'product_stock'},
+    { path: '/update-stock/:id', component: update_stock, name: 'update_stock'},
 
 
 

@@ -38,6 +38,11 @@ Route::middleware('JWT')->group(function(){
     Route::get('/salary/month/{id}','api\SalaryController@month_list');
     Route::get('/salary/list/{id}','api\SalaryController@salary_list');
     Route::get('/salary/total/{id}','api\SalaryController@total_paid');
+    Route::apiResource('/employee','api\EmployeesController');
+    Route::get('/salary/edit/{id}','api\SalaryController@edit');
+    Route::patch('/salary/update/{id}','api\SalaryController@update');
+    Route::apiResource('/stock','api\StockController');
+
 });
 
 
