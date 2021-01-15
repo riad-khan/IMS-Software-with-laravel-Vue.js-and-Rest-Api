@@ -20,11 +20,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0a17f681-8bde-4001-9bd5-ccbda1f6800e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/laravel-plugin.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/api/ProductsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/api/ProductsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/ims/products/1610123373.jpeg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AuthController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/api/CustomerController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/api/CustomerController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/JWT.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/JWT.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/jwt.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/jwt.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/Home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/Home.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/categories/all-categories.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/categories/all-categories.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/customer/all-customer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/customer/all-customer.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/customer/edit-customer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/customer/edit-customer.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/routes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/welcome.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/welcome.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
@@ -172,6 +180,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -220,6 +229,9 @@
       <workItem from="1610529791597" duration="919000" />
       <workItem from="1610544665528" duration="8932000" />
       <workItem from="1610568364886" duration="5381000" />
+      <workItem from="1610713562272" duration="1327000" />
+      <workItem from="1610718776472" duration="5548000" />
+      <workItem from="1610739002038" duration="8761000" />
     </task>
     <servers />
   </component>
@@ -283,6 +295,10 @@
       <screen x="-1920" y="0" width="1920" height="1050" />
     </state>
     <state x="-1697" y="-8" width="1636" height="1037" maximized="true" key="dock-window-2/-1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1609936071536" />
+    <state x="616" y="243" key="run.anything.popup" timestamp="1610723374380">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="616" y="243" key="run.anything.popup/-1920.0.1920.1050/0.0.1920.1050@0.0.1920.1050" timestamp="1610723374380" />
     <state x="623" y="227" width="672" height="678" key="search.everywhere.popup" timestamp="1610550930947">
       <screen x="0" y="0" width="1920" height="1050" />
     </state>

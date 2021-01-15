@@ -174,10 +174,17 @@
         </li>
 
 
+
+
         <hr class="sidebar-divider">
         <div class="sidebar-heading">
             Additional Features
         </div>
+        <li class="nav-item bg-gray">
+            <router-link class="nav-link" to="/pos-dashboard">
+                <i class="fas fa-fw fa-tachometer-alt"></i>
+                <span>POS</span></router-link>
+        </li>
 
 
         <hr class="sidebar-divider">

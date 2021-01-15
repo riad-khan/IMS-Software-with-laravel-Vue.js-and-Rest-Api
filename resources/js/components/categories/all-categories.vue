@@ -71,7 +71,7 @@
         },
 
         methods:{
-            allEmployees(){
+            allcategories(){
                 axios.get('/api/category/')
                     .then(({data}) =>(this.categories = data))
                     .catch()
@@ -107,7 +107,7 @@
 
         },
         created(){
-            this.allEmployees();
+            this.allcategories();
         }
     }
 </script>

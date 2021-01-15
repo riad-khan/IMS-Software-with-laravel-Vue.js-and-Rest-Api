@@ -308,12 +308,10 @@
 
 <script>
     export default {
-        created(){
-            if(!User.loggedIn()){
-                this.$router.push('/')
-            }
-        },
 
+        mounted() {
+            axios.post('/api/auth/checkToken')
+        }
 
 
     }

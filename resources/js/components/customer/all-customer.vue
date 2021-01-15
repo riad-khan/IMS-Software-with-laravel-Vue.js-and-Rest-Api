@@ -44,7 +44,7 @@
                                 <td>{{ customer.address }}</td>
 
                                 <td>
-                                    <router-link :to="{name:'EditSuppliers',params:{id:customer.id}}" class="btn btn-sm btn-primary">Edit</router-link>
+                                    <router-link :to="{name:'editCustomer',params:{id:customer.id}}" class="btn btn-sm btn-primary">Edit</router-link>
                                     <a @click="deleteCustomers(customer.id)" style="color: white" class="btn btn-sm btn-danger">Delete</a>
                                 </td>
                             </tr>
@@ -55,7 +55,7 @@
                     <div class="card-footer">
 
                         <div class="row justify-content-center">
-                            <router-link to="/add-supplier" class="btn btn-primary text-center">Add New Supplier</router-link>
+                            <router-link to="/create-customer" class="btn btn-primary text-center">Add New Customer</router-link>
                         </div>
 
                     </div>
