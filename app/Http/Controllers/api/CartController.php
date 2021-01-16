@@ -24,7 +24,17 @@ class CartController extends Controller
 
         $qty = $fetchProduct->product_quantity;
 
-        if($qty < 1){
+        $check = Cart::where('product_id',$id)->first();
+            if($check){
+
+             $increment = Cart::where('product_id',$id)->increment('qty');
+
+             $product = Cart::where('product_id',$id)->first();
+
+             $subtotal = $product->product_price * $product->qty;
+             $update = Cart::where('product_id',$id)->update(['subtotal' => $subtotal]);
+            }
+             else if($qty < 1){
             return response()->json('product stock Out');
         }else{
             $cartInsert = new Cart();
@@ -47,6 +57,32 @@ class CartController extends Controller
 
     public function removeProducts($id){
         $find = Cart::where('id',$id)->delete();
+    }
+
+    public function increment(Request $request,$id){
+
+        $qty = Cart::where('id',$id)->increment('qty');
+        $product = Cart::where('id',$id)->first();
+
+        $subtotal = $product->product_price * $product->qty;
+        $update = Cart::where('id',$id)->update(['subtotal' => $subtotal]);
+
+        return response()->json('updated');
+
+
+    }
+
+    public function decrement(Request $request,$id){
+
+        $qty = Cart::where('id',$id)->decrement('qty');
+        $product = Cart::where('id',$id)->first();
+
+        $subtotal = $product->product_price * $product->qty;
+        $update = Cart::where('id',$id)->update(['subtotal' => $subtotal]);
+
+        return response()->json('updated');
+
+
     }
 
 }

@@ -85,18 +85,30 @@
 
                                     <div class="row">
                                         <div class="col col-lg-2" v-for="getProduct in getFilterProducts" :key="getProduct.id">
-                                            <button class="btn btn-sm">
-                                                <div class="card" style="width: 8.5rem; margin-bottom: 5px; height: 210px;">
-                                                    <img :src="getProduct.product_image" id="em_photo" class="card-img-top">
-                                                    <div class="card-body">
-                                                        <h6 class="card-title">{{ getProduct.product_name.substring(0,11)+".." }}</h6>
+                                            <button class="btn btn-sm" v-if="getProduct.product_quantity <=1" @click.prevent="stockCheck()" >
+                                                  <div class="card" style="width: 8.5rem; margin-bottom: 5px; height: 210px;">
+                                                      <img :src="getProduct.product_image" id="em_photo" class="card-img-top">
+                                                      <div class="card-body">
+                                                          <h6 class="card-title">{{ getProduct.product_name.substring(0,11)+".." }}</h6>
+                                                          <span class="badge badge-success" v-if="getProduct.product_quantity  >= 1 ">Available {{ getProduct.product_quantity }} pcs  </span>
+                                                          <span class="badge badge-danger" v-else=" ">Stock Out </span>
 
-                                                        <span class="badge badge-success" v-if="getProduct.product_quantity  >= 1 ">Available {{ getProduct.product_quantity }} pcs  </span>
-                                                        <span class="badge badge-danger" v-else=" ">Stock Out </span>
+                                                      </div>
+                                                  </div>
+
+                                                  </button>
 
 
-                                                    </div>
-                                                </div></button>
+                                                      <button class="btn btn-sm" v-else @click.prevent="AddToCart(getProduct.id)">
+                                                  <div class="card" style="width: 8.5rem; margin-bottom: 5px; height: 210px;">
+                                                      <img :src="getProduct.product_image" id="em_photo" class="card-img-top">
+                                                      <div class="card-body">
+                                                          <h6 class="card-title">{{ getProduct.product_name.substring(0,11)+".." }}</h6>
+                                                          <span class="badge badge-success" v-if="getProduct.product_quantity  >= 1 ">Available {{ getProduct.product_quantity }} pcs  </span>
+                                                          <span class="badge badge-danger" v-else=" ">Stock Out </span>
+
+                                                      </div>
+                                                  </div></button>
 
                                         </div>
                                     </div>
@@ -139,8 +151,9 @@
                                         <tr v-for="cartProduct in cartProducts" :key="cartProduct.id">
                                             <td><a style="font-size: 14px;">{{ cartProduct.product_name }}</a></td>
                                             <td><input type="text" readonly  style="width: 15px;" :value="cartProduct.qty">
-                                            <button class="btn btn-sm" style="padding-right: 0px;padding-left: 0px;width: 15px;" >+</button>
-                                                <button class="btn btn-sm" style="padding-right: 0px;padding-left: 0px;">-</button>
+                                            <button class="btn btn-sm" @click.prevent="increment(cartProduct.id)"  style="padding-right: 0px;padding-left: 0px;width: 15px;" >+</button>
+                                                <button class="btn btn-sm" @click.prevent="decrement(cartProduct.id)" v-if="cartProduct.qty >= 2" style="padding-right: 0px;padding-left: 0px;">-</button>
+                                                  <button class="btn btn-sm"  v-else='' disabled style="padding-right: 0px;padding-left: 0px;">-</button>
                                             </td>
                                             <td>{{ cartProduct.product_price }}</td>
                                             <td>{{ cartProduct.subtotal }}</td>
@@ -304,6 +317,18 @@
                         Reload.$emit('CartReload')
                         Notification.remove()
                     })
+            },
+            increment(id){
+                axios.get('/api/cart/product/increment/'+id)
+                .then(()=>{
+                    Reload.$emit('CartReload')
+                })
+            },
+            decrement(id){
+                axios.get('/api/cart/product/decrement/'+id)
+                .then(()=>{
+                    Reload.$emit('CartReload')
+                })
             }
 
         },
