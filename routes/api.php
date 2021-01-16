@@ -44,7 +44,9 @@ Route::middleware('JWT')->group(function(){
     Route::apiResource('/stock','api\StockController');
     Route::apiResource('/customer','api\CustomerController');
     Route::get('/categorised/{id}','api\PosController@categorisedProduct');
-
+    Route::get('/cartProducts/{id}','api\CartController@addCart');
+    Route::get('/getCart','api\CartController@getCartProducts');
+    Route::get('/remove/cart/{id}','api\CartController@removeProducts');
 });
 
 

@@ -61,5 +61,34 @@ class Notification{
         }).show();
     }
 
+    cart(){
+        new Noty({
+            type:'success',
+            layout:'topRight',
+            text:'Product Added to Cart',
+            timeout:3600,
+        }).show();
+    }
+
+    remove(){
+        new Noty({
+            type:'success',
+            layout:'topRight',
+            text:'Product Removed from the Cart',
+            timeout:3600,
+        }).show();
+    }
+
+    stock(){
+        new Noty({
+            type:'error',
+            layout:'topRight',
+            text:'Product Not Available at Stock',
+            timeout:3600,
+        }).show();
+    }
+
+
+
 }
 export default Notification = new Notification()

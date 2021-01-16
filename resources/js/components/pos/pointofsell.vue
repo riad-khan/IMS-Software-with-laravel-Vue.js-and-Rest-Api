@@ -45,11 +45,23 @@
 
                                 <div class="card-body">
 
-                                    <a href="#">
+
                                     <div class="row">
 
                                           <div class="col col-lg-2" v-for="product in filterProducts" :key="product.id">
-                                              <button class="btn btn-sm">
+                                              <button class="btn btn-sm" v-if="product.product_quantity <=1" @click.prevent="stockCheck()" >
+                                                  <div class="card" style="width: 8.5rem; margin-bottom: 5px; height: 210px;">
+                                                      <img :src="product.product_image" id="em_photo" class="card-img-top">
+                                                      <div class="card-body">
+                                                          <h6 class="card-title">{{ product.product_name.substring(0,11)+".." }}</h6>
+                                                          <span class="badge badge-success" v-if="product.product_quantity  >= 1 ">Available {{ product.product_quantity }} pcs  </span>
+                                                          <span class="badge badge-danger" v-else=" ">Stock Out </span>
+
+                                                      </div>
+                                                  </div></button>
+
+
+                                              <button class="btn btn-sm" v-else @click.prevent="AddToCart(product.id)">
                                                   <div class="card" style="width: 8.5rem; margin-bottom: 5px; height: 210px;">
                                                       <img :src="product.product_image" id="em_photo" class="card-img-top">
                                                       <div class="card-body">
@@ -63,7 +75,7 @@
                                           </div>
 
                                     </div>
-                                    </a>
+
                                 </div>
 
                             </div>
@@ -78,8 +90,10 @@
                                                     <img :src="getProduct.product_image" id="em_photo" class="card-img-top">
                                                     <div class="card-body">
                                                         <h6 class="card-title">{{ getProduct.product_name.substring(0,11)+".." }}</h6>
+
                                                         <span class="badge badge-success" v-if="getProduct.product_quantity  >= 1 ">Available {{ getProduct.product_quantity }} pcs  </span>
                                                         <span class="badge badge-danger" v-else=" ">Stock Out </span>
+
 
                                                     </div>
                                                 </div></button>
@@ -116,35 +130,26 @@
                                         <tr>
                                             <th>Product Name</th>
                                             <th>Qty</th>
-                                            <th>Unit</th>
+                                            <th>price</th>
                                             <th>Total</th>
                                             <th>Action</th>
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <tr>
-                                            <td><a href="#">Name</a></td>
-                                            <td>Qty</td>
-                                            <td>Unit</td>
-                                            <td>Total</td>
-                                            <td><a href="#" class="btn btn-sm btn-primary">X</a></td>
+                                        <tr v-for="cartProduct in cartProducts" :key="cartProduct.id">
+                                            <td><a style="font-size: 14px;">{{ cartProduct.product_name }}</a></td>
+                                            <td><input type="text" readonly  style="width: 15px;" :value="cartProduct.qty">
+                                            <button class="btn btn-sm" style="padding-right: 0px;padding-left: 0px;width: 15px;" >+</button>
+                                                <button class="btn btn-sm" style="padding-right: 0px;padding-left: 0px;">-</button>
+                                            </td>
+                                            <td>{{ cartProduct.product_price }}</td>
+                                            <td>{{ cartProduct.subtotal }}</td>
+                                            <td><button @click.prevent="removeCart(cartProduct.id)" type="button" class="close" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button></td>
                                         </tr>
 
-                                        <tr>
-                                            <td><a href="#">Name</a></td>
-                                            <td>Qty</td>
-                                            <td>Unit</td>
-                                            <td>Total</td>
-                                            <td><a href="#" class="btn btn-sm btn-primary">X</a></td>
-                                        </tr>
 
-                                        <tr>
-                                            <td><a href="#">Name</a></td>
-                                            <td>Qty</td>
-                                            <td>Unit</td>
-                                            <td>Total</td>
-                                            <td><a href="#" class="btn btn-sm btn-primary">X</a></td>
-                                        </tr>
 
                                         </tbody>
                                     </table>
@@ -172,24 +177,23 @@
 
                                     <form>
                                         <label>Customer Name</label>
-                                        <select class="form-control" v-model="customer_id">
+                                        <select class="form-control" v-model="customer_id" >
 
-                                            <option value="Riad Khan">Riad khan</option>
+                                            <option :value="getCustomer.id" v-for="getCustomer in getCustomers" :key="getCustomer.id">{{getCustomer.customer_name}}</option>
                                         </select>
 
                                         <label>Pay</label>
                                         <select class="form-control" v-model="pay">
 
                                             <option value="Hand Cash">Hand Cash</option>
-                                            <option value="Hand Cash">Cheque</option>
-                                            <option value="Cash on Delivery">Cash on Delivery</option>
+
                                         </select>
 
                                         <label>Due</label>
                                         <input type="text" class="form-control" v-model="due"><br>
 
                                         <div class="row justify-content-center">
-                                            <button style="width:140px;" type="submit"  class="btn btn-primary">Order Products</button>
+                                            <button style="width:120px;" type="submit"  class="btn btn-primary">Confirm</button>
 
 
                                         </div>
@@ -218,18 +222,26 @@
         created(){
             if(!User.loggedIn()){
                 this.$router.push('/')
-            }else{
-               this.allProduct()
-                this.allCategory()
             }
+        },
+        created(){
+            this.allProduct()
+            this.allCategory()
+            this.getCustomer()
+            this.getCart()
+            Reload.$on('CartReload',() =>{
+                this.getCart();
+            })
         },
         data(){
             return{
                 products:[],
                 searchTerm:'',
                 categories:'',
-
+                getCustomers:'',
                 getProducts:[],
+                customer_id:'',
+                cartProducts:[],
             }
         },
         computed:{
@@ -263,6 +275,36 @@
                 .then(({data}) =>(this.getProducts = data))
                 .catch(error => this.errors = error.response.data.errors)
             },
+            getCustomer(){
+                axios.get('/api/customer/')
+                .then(({data}) =>(this.getCustomers = data))
+                    .catch(error => this.errors = error.response.data.errors)
+            },
+
+
+            AddToCart(id){
+                axios.get('/api/cartProducts/'+id)
+                .then(() =>{
+                    Reload.$emit('CartReload')
+                    Notification.cart()
+                })
+                    .catch(error => this.errors = error.response.data.errors)
+            },
+            getCart(){
+                    axios.get('/api/getCart/')
+                    .then(({data}) => (this.cartProducts = data))
+                        .catch()
+            },
+            stockCheck(){
+                    Notification.stock()
+            },
+            removeCart(id){
+                    axios.get('/api/remove/cart/'+id)
+                    .then(()=>{
+                        Reload.$emit('CartReload')
+                        Notification.remove()
+                    })
+            }
 
         },
 

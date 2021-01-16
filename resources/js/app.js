@@ -44,6 +44,8 @@ import {routes} from './routes'
 import User from './Helpers/User'
 window.User = User
 
+window.Reload = new Vue();
+
 //notification Helper Import//
 
 import Notification from './Helpers/Notification'
