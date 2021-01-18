@@ -27,7 +27,7 @@
 <div id="app">
 <div id="wrapper">
     <!-- Sidebar -->
-    <nav id="sidebar" v-show="$route.path === '/' || $route.path ==='/register' || $route.path === '/forgotPassword' ? false : true" style="display: none;">
+    <nav id="sidebar" v-show="$route.path === '/' || $route.path ==='/register' || $route.path === '/forgotPassword'|| $route.path === '/print' ? false : true" style="display: none;">
     <ul class="navbar-nav sidebar sidebar-light accordion" id="accordionSidebar">
         <router-link to="/home" class="sidebar-brand d-flex align-items-center justify-content-center" >
             <div class="sidebar-brand-icon">
@@ -176,6 +176,7 @@
 
 
 
+
         <hr class="sidebar-divider">
         <div class="sidebar-heading">
             Additional Features
@@ -195,7 +196,7 @@
     <div id="content-wrapper" class="d-flex flex-column">
         <div id="content">
             <!-- TopBar -->
-            <nav style="display: none;" v-show="$route.path === '/' || $route.path ==='/register' || $route.path === '/forgotPassword' ? false : true" id="topbar" class="navbar navbar-expand navbar-light bg-navbar topbar mb-4 static-top">
+            <nav style="display: none;" v-show="$route.path === '/' || $route.path ==='/register' || $route.path === '/forgotPassword' ||$route.path === '/print' ? false : true" id="topbar" class="navbar navbar-expand navbar-light bg-navbar topbar mb-4 static-top">
                 <button id="sidebarToggleTop" class="btn btn-link rounded-circle mr-3">
                     <i class="fa fa-bars"></i>
                 </button>

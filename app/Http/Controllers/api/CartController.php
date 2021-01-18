@@ -49,7 +49,7 @@ class CartController extends Controller
 
     public function getCartProducts(){
         $order_status = 'unknown';
-      $get = Cart::where('order_status',$order_status)->get();
+       $get = Cart::all();
 
 
         return response()->json($get);

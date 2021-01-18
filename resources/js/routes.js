@@ -31,6 +31,8 @@ const allCustomer = require('./components/customer/all-customer').default;
 const createCustomer = require('./components/customer/create-customer').default;
 const editCustomer = require('./components/customer/edit-customer').default;
 const pos = require('./components/pos/pointofsell').default;
+const print = require('./components/print').default;
+
 
 export const routes = [
     { path: '/', component:login, name: '/' },
@@ -65,6 +67,9 @@ export const routes = [
     { path: '/all-customer', component: allCustomer, name: 'allCustomer'},
     { path: '/edit-customers/:id', component: editCustomer, name: 'editCustomer'},
     { path: '/pos-dashboard', component: pos, name: 'pos'},
+    { path: '/print', component: print, name: 'print'},
+
+
 
 
 

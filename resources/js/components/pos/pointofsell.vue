@@ -1,5 +1,6 @@
 <template>
     <div>
+
         <!-- Container Fluid-->
         <div class="container-fluid" id="container-wrapper">
             <div class="d-sm-flex align-items-center justify-content-between mb-4">
@@ -24,7 +25,7 @@
                                     <h4 style="color: #1d68a7">Product list</h4>
 
                                 </div>
-                            <div class="col-md-6">
+                            <div class="col-sm -6">
                                 <input type="text" class="form-control float-right " v-model="searchTerm" style="width: 350px" placeholder="Search Products"><br>
                             </div>
                             </div>
@@ -55,7 +56,7 @@
                                                       <div class="card-body">
                                                           <h6 class="card-title">{{ product.product_name.substring(0,11)+".." }}</h6>
                                                           <span class="badge badge-success" v-if="product.product_quantity  >= 1 ">Available {{ product.product_quantity }} pcs  </span>
-                                                          <span class="badge badge-danger" v-else=" ">Stock Out </span>
+                                                          <span class="badge badge-danger" v-else="">Stock Out </span>
 
                                                       </div>
                                                   </div></button>
@@ -105,7 +106,7 @@
                                                       <div class="card-body">
                                                           <h6 class="card-title">{{ getProduct.product_name.substring(0,11)+".." }}</h6>
                                                           <span class="badge badge-success" v-if="getProduct.product_quantity  >= 1 ">Available {{ getProduct.product_quantity }} pcs  </span>
-                                                          <span class="badge badge-danger" v-else=" ">Stock Out </span>
+                                                          <span class="badge badge-danger" v-else="">Stock Out </span>
 
                                                       </div>
                                                   </div></button>
@@ -124,7 +125,7 @@
                     </div>
                 </div>
                 <!-- cart Box -->
-                <div class="col-xl-4 col-lg-5">
+                <div class="col-xl-4 col-lg-4 col-sm ">
                     <div class="card mb-4">
                         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                             <h6 class="m-0 font-weight-bold text-primary">Products Cart</h6>
@@ -171,45 +172,59 @@
 
                                     <ul class="list-group">
                                         <li class="list-group-item d-flex justify-content-between align-items-center">Total Quantity:
-                                            <strong>56</strong>
+                                            <strong>{{ qty }}</strong>
                                         </li>
 
                                         <li class="list-group-item d-flex justify-content-between align-items-center">Sub Total:
-                                            <strong>1000 TK</strong>
+                                            <strong>{{ subtotal }} TK</strong>
                                         </li>
 
-                                        <li class="list-group-item d-flex justify-content-between align-items-center">Delivery Charge:
-                                            <strong>50 Tk</strong>
+
+                                        <li class="list-group-item d-flex justify-content-between align-items-center">Vat:
+                                            <input type="text"  class="form-control" v-model="vat" style="width: 50px;" required>
+                                            <small class="text-danger" v-if="errors.vat"> {{ errors.vat[0] }} </small>
+
                                         </li>
 
                                         <li class="list-group-item d-flex justify-content-between align-items-center">Total amount:
-                                            <strong>1106 TK</strong>
+                                            <strong>{{ subtotal*vat /100 + subtotal }} TK</strong>
                                         </li>
                                     </ul>
                                     <br>
 
-                                    <form>
+                                    <form @submit.prevent="orderDone">
                                         <label>Customer Name</label>
-                                        <select class="form-control" v-model="customer_id" >
+                                        <select class="form-control" v-model="customer_id" required >
 
                                             <option :value="getCustomer.id" v-for="getCustomer in getCustomers" :key="getCustomer.id">{{getCustomer.customer_name}}</option>
+
                                         </select>
 
-                                        <label>Pay</label>
-                                        <select class="form-control" v-model="pay">
+                                        <label>Pay By</label>
+                                        <select class="form-control" v-model="pay_by" required>
 
                                             <option value="Hand Cash">Hand Cash</option>
 
+
                                         </select>
 
+                                        <label>pay</label>
+                                        <input type="text" class="form-control" v-model="pay" required ><br>
+
                                         <label>Due</label>
-                                        <input type="text" class="form-control" v-model="due"><br>
+                                        <input type="text" :value="due" class="form-control" ><br>
 
                                         <div class="row justify-content-center">
-                                            <button style="width:120px;" type="submit"  class="btn btn-primary">Confirm</button>
-
-
+                                            <button style="width:120px;" type="submit"  class="btn btn-primary" >Confirm</button>
                                         </div>
+
+
+                                        <!---Modal -->
+
+
+                                        <!-- Modal -->
+
+
                                     </form>
 
                                 </div>
@@ -231,7 +246,9 @@
 </template>
 
 <script>
+    import Print from "../print";
     export default {
+        components: {Print},
         created(){
             if(!User.loggedIn()){
                 this.$router.push('/')
@@ -242,6 +259,7 @@
             this.allCategory()
             this.getCustomer()
             this.getCart()
+
             Reload.$on('CartReload',() =>{
                 this.getCart();
             })
@@ -249,12 +267,21 @@
         data(){
             return{
                 products:[],
+
+
+                    pay_by:'',
+                    pay:0,
+                    dues:0,
+                customer_id:'',
+
                 searchTerm:'',
                 categories:'',
                 getCustomers:'',
                 getProducts:[],
                 customer_id:'',
                 cartProducts:[],
+                vat:'',
+                errors:{}
             }
         },
         computed:{
@@ -268,7 +295,31 @@
                 return this.getProducts.filter(getProduct =>{
                     return getProduct.product_name.toUpperCase().match(this.searchTerm.toUpperCase())
                 })
+            },
+            qty(){
+                let sum = 0
+                for(let i = 0; i < this.cartProducts.length; i++){
+
+                    sum += (parseFloat(this.cartProducts[i].qty))
+                }
+                return sum
+            },
+            subtotal(){
+                let count = 0
+                for(let x =0; x < this.cartProducts.length; x++){
+                    count +=(parseFloat(this.cartProducts[x].qty) * parseFloat(this.cartProducts[x].product_price))
+                }
+                return count
+            },
+            due:function () {
+                let calculateDue = this.subtotal * this.vat / 100 + this.subtotal - this.pay
+
+                this.dues = calculateDue
+
+                return calculateDue
             }
+
+
         },
 
         methods:{
@@ -317,19 +368,47 @@
                         Reload.$emit('CartReload')
                         Notification.remove()
                     })
+                        .catch(error => this.errors = error.response.data.errors)
             },
             increment(id){
                 axios.get('/api/cart/product/increment/'+id)
                 .then(()=>{
                     Reload.$emit('CartReload')
                 })
+                    .catch(error => this.errors = error.response.data.errors)
             },
             decrement(id){
                 axios.get('/api/cart/product/decrement/'+id)
                 .then(()=>{
                     Reload.$emit('CartReload')
                 })
+            },
+            orderDone(){
+                    let total = this.subtotal*this.vat /100 + this.subtotal
+                var data = {
+                        customer_id : this.customer_id,
+                        qty:this.qty,
+                        subtotal : this.subtotal,
+                        vat : this.vat,
+                        total : total,
+                        pay : this.pay,
+                        dues: this.dues,
+                        pay_by : this.pay_by
+                }
+
+
+
+                    axios.post('/api/orderDone',data)
+                        .then(()=>{
+                            Notification.success()
+                            this.$router.push('/home')
+                        })
+                        .catch(error => this.errors = error.response.data.errors)
+
+
             }
+
+
 
         },
 

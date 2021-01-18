@@ -49,6 +49,8 @@ Route::middleware('JWT')->group(function(){
     Route::get('/remove/cart/{id}','api\CartController@removeProducts');
     Route::get('/cart/product/increment/{id}','api\CartController@increment');
     Route::get('/cart/product/decrement/{id}','api\CartController@decrement');
+
+    Route::post('/orderDone','api\PosController@orderDone');
 });
 
 
