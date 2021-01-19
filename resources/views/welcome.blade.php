@@ -31,9 +31,9 @@
     <ul class="navbar-nav sidebar sidebar-light accordion" id="accordionSidebar">
         <router-link to="/home" class="sidebar-brand d-flex align-items-center justify-content-center" >
             <div class="sidebar-brand-icon">
-                <img src="{{asset("ims/img/logo/logo2.png")}}">
+                <img src="{{asset("ims/img/logo/pos.png")}}">
             </div>
-            <div class="sidebar-brand-text mx-3"> IMS Software</div>
+            <div class="sidebar-brand-text mx-3">POS Software</div>
         </router-link>
         <hr class="sidebar-divider my-0">
         <li class="nav-item active">
@@ -167,6 +167,23 @@
                     <h6 class="collapse-header">Customer</h6>
                     <router-link class="collapse-item" to="/create-customer">Create Customer</router-link>
                     <router-link class="collapse-item" to="/all-customer">Customer List</router-link>
+
+
+                </div>
+            </div>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseBootstrap8"
+               aria-expanded="true" aria-controls="collapseBootstrap8">
+                <i class="far fa-fw fa-window-maximize"></i>
+                <span>Orders</span>
+            </a>
+            <div id="collapseBootstrap8" class="collapse" aria-labelledby="headingBootstrap" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Customer</h6>
+                    <router-link class="collapse-item" to="/orders">All Orders</router-link>
+
 
 
                 </div>
@@ -391,7 +408,7 @@
         </div>
 
         <!-- Footer -->
-        <footer class="sticky-footer bg-white">
+        <footer class="sticky-footer bg-white" v-show="$route.path === '/print' ? false : true">
             <div class="container my-auto">
                 <div class="copyright text-center my-auto">
             <span>copyright &copy; <script> document.write(new Date().getFullYear()); </script> - developed by
@@ -427,6 +444,7 @@
 <script src="{{asset("ims/js/ruang-admin.min.js")}}"></script>
 <script src="{{asset("ims/vendor/chart.js/Chart.min.js")}}"></script>
 <script src="{{asset("ims/js/demo/chart-area-demo.js")}}"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 </body>
 
 </html>

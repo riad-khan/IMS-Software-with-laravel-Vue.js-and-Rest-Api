@@ -49,8 +49,20 @@ Route::middleware('JWT')->group(function(){
     Route::get('/remove/cart/{id}','api\CartController@removeProducts');
     Route::get('/cart/product/increment/{id}','api\CartController@increment');
     Route::get('/cart/product/decrement/{id}','api\CartController@decrement');
-
     Route::post('/orderDone','api\PosController@orderDone');
+    Route::get('/latestOrder','api\printController@latestOrder');
+    Route::get('/print','api\printController@print');
+    Route::get('/subtotal','api\printController@subtotal');
+    Route::get('/vat','api\printController@vat');
+    Route::get('/total','api\printController@total');
+    Route::get('/paid','api\printController@paid');
+    Route::get('/todays-orders','api\OrderController@todaysOrder');
+    Route::get('/this-weeks-orders','api\OrderController@thisWeeek');
+    Route::get('/this-months-orders','api\OrderController@thisMonth');
+    Route::get('/all','api\OrderController@all');
+
+
+
 });
 
 

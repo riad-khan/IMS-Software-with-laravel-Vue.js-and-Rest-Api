@@ -32,6 +32,8 @@ const createCustomer = require('./components/customer/create-customer').default;
 const editCustomer = require('./components/customer/edit-customer').default;
 const pos = require('./components/pos/pointofsell').default;
 const print = require('./components/print').default;
+const orders = require('./components/order/oreders').default;
+const Order_details = require('./components/order/order-details').default;
 
 
 export const routes = [
@@ -68,6 +70,8 @@ export const routes = [
     { path: '/edit-customers/:id', component: editCustomer, name: 'editCustomer'},
     { path: '/pos-dashboard', component: pos, name: 'pos'},
     { path: '/print', component: print, name: 'print'},
+    { path: '/orders', component: orders, name: 'orders'},
+    { path: '/Order-details/:id', component:Order_details, name: 'Order-details'},
 
 
 

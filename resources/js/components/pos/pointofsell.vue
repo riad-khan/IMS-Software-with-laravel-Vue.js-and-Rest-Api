@@ -105,7 +105,7 @@
                                                       <img :src="getProduct.product_image" id="em_photo" class="card-img-top">
                                                       <div class="card-body">
                                                           <h6 class="card-title">{{ getProduct.product_name.substring(0,11)+".." }}</h6>
-                                                          <span class="badge badge-success" v-if="getProduct.product_quantity  >= 1 ">Available {{ getProduct.product_quantity }} pcs  </span>
+                                                          <span class="badge badge-success" v-if="getProduct.product_quantity  >=1 ">Available {{ getProduct.product_quantity }} pcs  </span>
                                                           <span class="badge badge-danger" v-else="">Stock Out </span>
 
                                                       </div>
@@ -216,7 +216,10 @@
 
                                         <div class="row justify-content-center">
                                             <button style="width:120px;" type="submit"  class="btn btn-primary" >Confirm</button>
+                                            <router-link  to="/print" style="width:120px"  class="btn btn-success ml-5 float-right">Print</router-link>
+
                                         </div>
+
 
 
                                         <!---Modal -->
@@ -400,8 +403,11 @@
 
                     axios.post('/api/orderDone',data)
                         .then(()=>{
-                            Notification.success()
+
                             this.$router.push('/home')
+
+                            Notification.success()
+
                         })
                         .catch(error => this.errors = error.response.data.errors)
 

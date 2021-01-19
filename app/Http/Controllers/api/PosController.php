@@ -36,11 +36,14 @@ class PosController extends Controller
        $data['due'] = $request->dues;
        $data['pay_by'] = $request->pay_by;
        $data['created_at'] = Carbon::now();
-
        $data['order_date'] = date('d/m/Y');
        $data['order_month'] = date('F');
        $data['order_year'] = date('Y');
+       $data['order_status'] = 'processing';
+
        $order_id = DB::table('orders')->insertGetId($data);
+
+
 
        $details = DB::table('carts')->get();
 
@@ -52,6 +55,8 @@ class PosController extends Controller
            $odata['product_qty'] = $detail->qty;
            $odata['product_price'] = $detail->product_price;
            $odata['subtotal'] = $detail->subtotal;
+           $odata['total'] = $request->total;
+           $odata['vat'] = $request->vat;
 
          $insert_odetails=   DB::table('orders_details')->insert($odata);
 
@@ -63,4 +68,6 @@ class PosController extends Controller
 
 
     }
+
+
 }
