@@ -60,6 +60,29 @@ Route::middleware('JWT')->group(function(){
     Route::get('/this-weeks-orders','api\OrderController@thisWeeek');
     Route::get('/this-months-orders','api\OrderController@thisMonth');
     Route::get('/all','api\OrderController@all');
+    Route::get('/order-details/{id}','api\OrderController@details');
+    Route::get('/order-detailsAll/{id}','api\OrderController@OrderDetailsAll');
+    Route::get('/order-status/{id}','api\OrderController@status');
+    Route::patch('/order-status-update/{id}','api\OrderController@update');
+    Route::get('/home-todays-sell','api\ReportController@todaysSell');
+    Route::get('/home-monthly-sell','api\ReportController@monthly');
+    Route::get('/home-total-sell','api\ReportController@totalSell');
+    Route::get('/home-total-dues','api\ReportController@totalDue');
+    Route::get('/home-total-orders','api\ReportController@totalorders');
+    Route::get('/home-delivered-orders','api\ReportController@delivered');
+    Route::get('/home-queue-orders','api\ReportController@queue');
+    Route::get('/home-shipping-orders','api\ReportController@shipping');
+    Route::get('/home-employee-list','api\ReportController@employee');
+    Route::get('/home-monthly-salary','api\ReportController@monthlySalary');
+    Route::get('/home-yearly-salary','api\ReportController@year');
+    Route::get('/home-total-salary','api\ReportController@totalSalary');
+    Route::get('/home-monthly-expense','api\ReportController@expense');
+    Route::get('/home-total-expense','api\ReportController@totalExpense');
+    Route::get('/home-supplier','api\ReportController@supplier');
+
+    Route::get('/top-selling','api\ReportController@topSelling');
+
+
 
 
 

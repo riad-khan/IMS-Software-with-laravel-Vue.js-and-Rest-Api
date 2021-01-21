@@ -34,6 +34,7 @@ const pos = require('./components/pos/pointofsell').default;
 const print = require('./components/print').default;
 const orders = require('./components/order/oreders').default;
 const Order_details = require('./components/order/order-details').default;
+const order_status = require('./components/order/update-status').default;
 
 
 export const routes = [
@@ -72,6 +73,7 @@ export const routes = [
     { path: '/print', component: print, name: 'print'},
     { path: '/orders', component: orders, name: 'orders'},
     { path: '/Order-details/:id', component:Order_details, name: 'Order-details'},
+    { path: '/order-status/:id', component: order_status, name: 'order_status'},
 
 
 

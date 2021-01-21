@@ -16,7 +16,7 @@
 
 
                     <div class="card-header py-3 flex-row justify-content-between">
-                        <input type="text" class="form-control float-right " v-model="searchTerm" style="width: 350px" placeholder="Search Products"><br>
+                        <input type="text" class="form-control float-right " v-model="searchTerm" style="width: 350px" placeholder="Search By Date e.g: 20/1/2021"><br>
                     </div>
 
 
@@ -74,7 +74,7 @@
 
 
                                     <td>
-                                        <router-link :to="{name:'',params:{id:order.id}}" class="btn btn-sm btn-primary">update Status</router-link>
+                                        <router-link :to="{name:'order_status',params:{id:order.id}}" class="btn btn-sm btn-primary">update Status</router-link>
                                         <router-link :to="{name:'Order-details',params:{id:order.id}}" class="btn btn-sm btn-primary">Details</router-link>
 
                                     </td>
@@ -125,7 +125,7 @@
 
 
                                         <td>
-                                            <router-link :to="{name:'',params:{id:month.id}}" class="btn btn-sm btn-primary">update Status</router-link>
+                                            <router-link :to="{name:'order_status',params:{id:month.id}}" class="btn btn-sm btn-primary">update Status</router-link>
                                             <router-link :to="{name:'Order-details',params:{id:month.id}}" class="btn btn-sm btn-primary">Details</router-link>
 
                                         </td>
@@ -177,7 +177,7 @@
 
 
                                         <td>
-                                            <router-link :to="{name:'',params:{id:order.id}}" class="btn btn-sm btn-primary">update Status</router-link>
+                                            <router-link :to="{name:'order_status',params:{id:order.id}}" class="btn btn-sm btn-primary">update Status</router-link>
                                             <router-link :to="{name:'Order-details',params:{id:order.id}}" class="btn btn-sm btn-primary">Details</router-link>
 
                                         </td>

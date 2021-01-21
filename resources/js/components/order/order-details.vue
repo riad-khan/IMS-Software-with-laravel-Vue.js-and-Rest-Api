@@ -29,11 +29,11 @@
                                                 <div class="table-responsive">
 
                                                     <ul class="list-group">
-                                                        <li class="list-group-item"><b>Name :</b>  </li>
-                                                        <li class="list-group-item"><b>Phone :</b> </li>
-                                                        <li class="list-group-item"><b>Address :</b> </li>
-                                                        <li class="list-group-item"><b>Date :</b> </li>
-                                                        <li class="list-group-item"><b>Pay Through :</b></li>
+                                                        <li class="list-group-item"><b>Name :  </b> &nbsp; {{ orders.customer_name }}  </li>
+                                                        <li class="list-group-item"><b>Phone :</b> &nbsp; {{ orders.phone_number }} </li>
+                                                        <li class="list-group-item"><b>Address :</b> &nbsp; {{ orders.address }} </li>
+                                                        <li class="list-group-item"><b>Date :</b>  &nbsp; {{ orders.order_date }} </li>
+                                                        <li class="list-group-item"><b>Pay Through :</b>  &nbsp; {{ orders.pay_by }}</li>
                                                     </ul>
 
 
@@ -55,11 +55,11 @@
 
 
                                                     <ul class="list-group">
-                                                        <li class="list-group-item"><b>Sub Total :</b>  $ </li>
-                                                        <li class="list-group-item"><b>Vat :</b>  $</li>
-                                                        <li class="list-group-item"><b>Total :</b>  $</li>
-                                                        <li class="list-group-item"><b>Pay Amount :</b>  $</li>
-                                                        <li class="list-group-item"><b>Due Amount :</b>  $</li>
+                                                        <li class="list-group-item"><b>Sub Total :</b>   &nbsp; {{ orders.sub_total }} Tk </li>
+                                                        <li class="list-group-item"><b>Vat :</b>  &nbsp; {{ orders.vat }} %</li>
+                                                        <li class="list-group-item"><b>Total :</b>   &nbsp; {{ orders.total }} Tk</li>
+                                                        <li class="list-group-item"><b>Pay Amount :</b>   &nbsp; {{ orders.pay }} Tk</li>
+                                                        <li class="list-group-item"><b>Due Amount :</b>   &nbsp; {{ orders.due }} Tk</li>
                                                     </ul>
 
 
@@ -113,12 +113,12 @@
                                                         </thead>
                                                         <tbody>
                                                         <tr v-for="detail in details">
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td></td>
-                                                            <td> $</td>
-                                                            <td></td>
+                                                            <td>{{ detail.product_name }}</td>
+                                                            <td>{{ detail.product_code }}</td>
+                                                            <td><img :src="'/'+detail.product_image" id="em_photo"></td>
+                                                            <td>{{ detail.product_qty }}</td>
+                                                            <td>{{ detail.product_price }} TK</td>
+                                                            <td>{{ detail.subtotal }} Tk</td>
                                                         </tr>
 
                                                         </tbody>
@@ -161,10 +161,21 @@
 
     export default {
 
+        created() {
+            let id = this.$route.params.id
+            axios.get('/api/order-details/'+id)
+                .then(({data}) => (this.orders = data))
+                .catch(console.log('error'))
 
+            axios.get('/api/order-detailsAll/'+id)
+                .then(({data}) => (this.details = data))
+                .catch(console.log('error'))
+        },
         data(){
             return {
-
+                orders:{},
+                details:{},
+                errors:{},
 
             }
         },
@@ -181,7 +192,7 @@
 </script>
 
 
-<style type="text/css">
+<style type="text/css" scoped>
     #em_photo{
         height: 40px;
         width: 40px;
